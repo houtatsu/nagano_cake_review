@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # 管理者用
+ # 管理者用
   # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   
   namespace :admin do
     root 'homes#top', as: 'root'
+    get 'admin/customers', to: 'customers#index', as: 'index'
+    get 'admin/customers/:id', to: 'customers#show', as: 'show'
+    get 'admin/customers/:id/edit', to: 'customers#edit', as: 'edit'
+    patch 'admin/customers/:id', to: 'customers#update', as: 'update'
   end
   
   # 顧客用
@@ -19,6 +23,10 @@ Rails.application.routes.draw do
   namespace :public do
     root 'homes#top', as: 'root'
     get 'homes/about'
+    get 'customers/my_page', to: 'customers#show', as: 'my_page'
+    get 'customers/infomation/edit', to: 'customers#edit', as: 'edit'
+    patch 'customers/infomation', to: 'customers#update', as: 'infomation'
+    get 'customers/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'customers/withdraw', to: 'customers#withdraw', as: 'withdraw'
   end
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

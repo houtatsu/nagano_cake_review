@@ -1,7 +1,5 @@
-<div>
-  <div>
-    <div>
-      <%= link_to "退会する", public_withdraw_path, method: :patch, data: { confirm: '退会しますか？' }, class: "btn btn-danger" %>
-    </div>
-  </div>
-</div>
+<h1>Public::Homes#unsubscribe</h1>
+<p>Find me in app/views/public/homes/unsubscribe.html.erb</p>
+
+<%= link_to "退会する", public_withdraw_path(current_customer.id), method: :patch %>
+

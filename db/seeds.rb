@@ -9,10 +9,10 @@ Customer.create!(
       last_name: "苗字",
       first_name_kana: "ナマエ",
       last_name_kana: "ミョウジ",
-      email: "test1@gmail.com",
+      email: "test2@gmail.com",
       postal_code: "1111111",
       address: "test1県test1市",
       telephone_number: "11111111111",
-      password: "111111",
+      password: "222222",
     }
     )

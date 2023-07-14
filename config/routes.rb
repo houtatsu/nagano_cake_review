@@ -23,10 +23,10 @@ Rails.application.routes.draw do
   namespace :public do
     root 'homes#top', as: 'root'
     get 'homes/about'
+    get 'customers/:id/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe'
+    patch 'customers/:id/withdraw', to: 'customers#withdraw', as: 'withdraw'
     get 'customers/my_page', to: 'customers#show', as: 'my_page'
     get 'customers/infomation/edit', to: 'customers#edit', as: 'edit'
     patch 'customers/infomation', to: 'customers#update', as: 'infomation'
-    get 'customers/unsubscribe', to: 'customers#unsubscribe', as: 'unsubscribe'
-    patch 'customers/withdraw', to: 'customers#withdraw', as: 'withdraw'
   end
 end
